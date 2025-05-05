@@ -2,6 +2,12 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { postedAt } from '../utils';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp } from 'react-icons/md';
+import Card from './styled/Card';
+import Image from './styled/Image';
+import Wrapper from './styled/Wrapper';
+import Text from './styled/Text';
+import Button from './styled/Button';
+import BodyText from './styled/BodyText';
 
 function CommentItem({
   id,
@@ -18,32 +24,34 @@ function CommentItem({
   const isDownVoted = downVotesBy.includes(authUserId);
 
   return (
-    <li className='comment-item'>
-      <img src={owner.avatar}/>
-      <div className='comment-item__content'>
-        <div className='comment-item__content-header'>
-          <p className='comment-item__content-header__name'>{owner.name}</p>
-          <p className='comment-item__content-header__separator'>•</p>
-          <p className='comment-item__content-header__created-at'>{postedAt(createdAt)}</p>
-        </div>
-        <div className='comment-item__content-body' dangerouslySetInnerHTML={{ __html: content }}/>
-        <div className='comment-item__content-actions'>
-          <button
+    <Card $padding='12px'>
+      <Image src={owner.avatar} $weight='40px' $height='40'/>
+      <Wrapper>
+        <Wrapper $direction='row' $align='center'>
+          <Text $weight='500'>{owner.name}</Text>
+          <Text $size='12px' $color='#a8a6ac' $weight='300'>•</Text>
+          <Text $size='12px' $color='#a8a6ac' $weight='300'>{postedAt(createdAt)}</Text>
+        </Wrapper>
+        <BodyText className='comment-item__body' dangerouslySetInnerHTML={{ __html: content }}/>
+        <Wrapper $direction='row'>
+          <Button
+            $size='14px'
             className={isUpVoted ? 'up-voted' : ''}
             type='button' onClick={() => upVoteComment(id)}
           >
             <MdOutlineKeyboardArrowUp /> {upVotesBy.length}
-          </button>
-          <button
+          </Button>
+          <Button
+            $size='14px'
             className={isDownVoted ? 'down-voted' : ''}
             type='button'
             onClick={() => downVoteComment(id)}
           >
             <MdOutlineKeyboardArrowDown /> {downVotesBy.length}
-          </button>
-        </div>
-      </div>
-    </li>
+          </Button>
+        </Wrapper>
+      </Wrapper>
+    </Card>
   );
 }
 

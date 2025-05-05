@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
 import useInput from '../hooks/useInput';
 import PropTypes from 'prop-types';
+import Form from './styled/Form';
+import Button from './styled/Button';
+import Text from './styled/Text'
+import Input from './styled/Input';
 
 function ThreadInput({ addNewThread }) {
   const [title, onTitleChange] = useInput('');
@@ -19,12 +23,19 @@ function ThreadInput({ addNewThread }) {
   };
 
   return (
-    <form className='thread-input'>
-      <input className='thread-input__title' type='text' placeholder='Judul' value={title} onChange={onTitleChange} />
-      <input className='thread-input__category' type='text' placeholder='Kategori' value={category} onChange={onCategoryChange} />
+    <Form>
+      <Input type='text' placeholder='Judul' value={title} onChange={onTitleChange} />
+      <Input type='text' placeholder='Kategori' value={category} onChange={onCategoryChange} />
       <div className='thread-input__body' contentEditable='true' aria-label='body' onInput={onBodyChange} />
-      <button type='submit' onClick={onAddNewThreadClick}>Post</button>
-    </form>
+      <Button 
+        type='submit' onClick={onAddNewThreadClick}
+        $background='#0f69e6' $padding='12px' $justify='center'
+        $hoverBackground='#1681fa' $transition='transform 0.3s ease'
+        $transform='scale(0.975)'
+      >
+        <Text $color='white' $size='14px'>Post</Text>
+      </Button>
+    </Form>
   );
 }
 

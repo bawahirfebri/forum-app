@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { asyncAddCommentThreadDetail, asyncDownVoteCommentThreadDetail, asyncDownVoteThreadDetail, asyncReceiveThreadDetail, asyncUpVoteCommentThreadDetail, asyncUpVoteThreadDetail } from '../states/threadDetail/action';
 import ThreadDetail from '../components/ThreadDetail';
+import Container from '../components/styled/Container';
 
 function DetailPage() {
   const { id } = useParams();
@@ -41,7 +42,10 @@ function DetailPage() {
   }
 
   return (
-    <section>
+    <Container
+      $mw='600px' $margin='56px auto 0' 
+      $padding='24px 16px' $gap='24px'
+    >
       <ThreadDetail
         {...threadDetail}
         authUserId={authUser.id}
@@ -51,7 +55,7 @@ function DetailPage() {
         upVoteComment={onUpVoteComment}
         downVoteComment={onDownVoteComment}
       />
-    </section>
+    </Container>
   );
 }
 

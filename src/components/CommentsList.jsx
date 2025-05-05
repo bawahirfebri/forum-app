@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import CommentItem, { commentShape } from './CommentItem';
+import Container from './styled/Container';
 
 function CommentsList({ comments, authUserId, upVoteComment, downVoteComment }) {
   return (
-    <ul className='comments-list'>
+    <Container>
       {
         comments.map((comment) => (
           <CommentItem
@@ -16,7 +17,7 @@ function CommentsList({ comments, authUserId, upVoteComment, downVoteComment }) 
           />
         ))
       }
-    </ul>
+    </Container>
   );
 }
 

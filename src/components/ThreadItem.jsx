@@ -4,6 +4,10 @@ import { postedAt, stripHtml } from '../utils';
 import { useNavigate } from 'react-router-dom';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineModeComment } from 'react-icons/md';
 import Card from './styled/Card';
+import Image from './styled/Image';
+import Wrapper from './styled/Wrapper';
+import Button from './styled/Button';
+import Text from './styled/Text';
 
 function ThreadItem({ id, title, body, category, createdAt, upVotesBy = [], downVotesBy = [], totalComments, owner, authUserId, upVote, downVote }) {
   const navigate = useNavigate();
@@ -26,64 +30,38 @@ function ThreadItem({ id, title, body, category, createdAt, upVotesBy = [], down
   const isDownVoted = downVotesBy.includes(authUserId);
 
   return (
-    <>
-      <li className='thread-item' role='button' onClick={onThreadClick}>
-        <img src={owner.avatar} />
-        <div>
-          <div className='thread-item__owner'>
-            <div className='thread-item__owner-info'>
-              <p className='thread-item__owner-name'>{owner.name}</p>
-              <p className='thread-item__owner-separator'>•</p>
-              <p className='thread-item__owner-created-at'>{postedAt(createdAt)}</p>
-            </div>
-            <p className='thread-item__owner-category-thread-info'>{category}</p>
-          </div>
-          <div className='thread-item__content'>
-            <p className='thread-item__content-title'>{title}</p>
-            <p className='thread-item__content-body'>{body.length > 200 ? `${stripHtml(body).slice(0, 200)}...` : body}</p>
-          </div>
-          <div className='thread-item__actions'>
-            <button className={isUpVoted ? 'up-voted' : ''} type='button' onClick={onUpVoteThreadClick}>
-              <MdOutlineKeyboardArrowUp /> {upVotesBy.length}
-            </button>
-            <button className={isDownVoted ? 'down-voted' : ''} type='button' onClick={onDownVoteThreadClick}>
-              <MdOutlineKeyboardArrowDown /> {downVotesBy.length}
-            </button>
-            <button>
-              <MdOutlineModeComment /> {totalComments}
-            </button>
-          </div>
-        </div>
-      </li>
-      <Card role='button' onClick={onThreadClick}>
-        <img src={owner.avatar} />
-        <div>
-          <div className='thread-item__owner'>
-            <div className='thread-item__owner-info'>
-              <p className='thread-item__owner-name'>{owner.name}</p>
-              <p className='thread-item__owner-separator'>•</p>
-              <p className='thread-item__owner-created-at'>{postedAt(createdAt)}</p>
-            </div>
-            <p className='thread-item__owner-category-thread-info'>{category}</p>
-          </div>
-          <div className='thread-item__content'>
-            <p className='thread-item__content-title'>{title}</p>
-            <p className='thread-item__content-body'>{body.length > 200 ? `${stripHtml(body).slice(0, 200)}...` : body}</p>
-          </div>
-          <div className='thread-item__actions'>
-            <button className={isUpVoted ? 'up-voted' : ''} type='button' onClick={onUpVoteThreadClick}>
-              <MdOutlineKeyboardArrowUp /> {upVotesBy.length}
-            </button>
-            <button className={isDownVoted ? 'down-voted' : ''} type='button' onClick={onDownVoteThreadClick}>
-              <MdOutlineKeyboardArrowDown /> {downVotesBy.length}
-            </button>
-            <button>
-              <MdOutlineModeComment /> {totalComments}
-            </button>
-          </div>
-        </div>
-      </Card>
-    </>
+    <Card role='button' onClick={onThreadClick}>
+      <Image src={owner.avatar} />
+      <Wrapper $width='100%'>
+        <Wrapper $direction='row' $justify='space-between'>
+          <Wrapper $direction='row' $align='center'>
+            <Text>{owner.name}</Text>
+            <Text $size='12px' $weight='300' $color='#a8a6ac'>•</Text>
+            <Text $size='12px' $weight='300' $color='#a8a6ac'>{postedAt(createdAt)}</Text>
+          </Wrapper>
+          <Wrapper $background='#e4ecf7' $radius='6px' $padding='4px 8px'>
+            <Text $size='12px' $color='#505780' $weight='500'>{category}</Text>
+          </Wrapper>
+        </Wrapper>
+        <Wrapper $gap='2px'>
+          <Text>{title}</Text>
+          <Text $size='14px' $weight='300' $color='#625F68'>
+            {body.length > 200 ? `${stripHtml(body).slice(0, 200)}...` : body}
+          </Text>
+        </Wrapper>
+        <Wrapper $direction='row' $align='center'>
+          <Button className={isUpVoted ? 'up-voted' : ''} type='button' onClick={onUpVoteThreadClick}>
+            <MdOutlineKeyboardArrowUp /> {upVotesBy.length}
+          </Button>
+          <Button className={isDownVoted ? 'down-voted' : ''} type='button' onClick={onDownVoteThreadClick}>
+            <MdOutlineKeyboardArrowDown /> {downVotesBy.length}
+          </Button>
+          <Button>
+            <MdOutlineModeComment /> {totalComments}
+          </Button>
+        </Wrapper>
+      </Wrapper>
+    </Card>
   );
 }
 

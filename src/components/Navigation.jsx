@@ -2,18 +2,25 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import { MdOutlineLogout } from 'react-icons/md';
 import { Link } from 'react-router-dom';
+import Nav from './styled/Nav';
+import Button from './styled/Button';
 
 function Navigation({ signOut }) {
   return (
     <>
       <h1>Forum</h1>
-      <nav>
+      <Nav>
         <Link to='/'>Threads</Link>
         <Link to='/leaderboards'>Leaderboards</Link>
-        <button type='button' onClick={signOut}>
+        <Button 
+          type='button' onClick={signOut}
+          $size='20px' $hoverBackground='none'
+          $transition='transform 0.3s ease'
+          $transform='scale(0.9)' $hoverColor='#625F68'
+        >
           <MdOutlineLogout />
-        </button>
-      </nav>
+        </Button>
+      </Nav>
     </>
   );
 }

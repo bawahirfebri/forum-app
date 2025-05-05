@@ -5,6 +5,7 @@ import ThreadsList from '../components/ThreadsList';
 import { asyncDownVoteThread, asyncUpVoteThread } from '../states/threads/action';
 import AddNewThreadButton from '../components/AddNewThreadButton';
 import CategoriesList from '../components/CategoriesList';
+import Container from '../components/styled/Container';
 
 function HomePage() {
   const users = useSelector((states) => states.users);
@@ -31,7 +32,7 @@ function HomePage() {
     dispatch(asyncDownVoteThread(threadId));
   };
 
-  const categoriesList = threads.map((thread) => thread.category);
+  const categoriesList = [...new Set(threads.map((thread) => thread.category))];
 
   const threadsList = threads
     .map((thread) => ({
@@ -45,7 +46,10 @@ function HomePage() {
   }
 
   return (
-    <section>
+    <Container 
+      $mw='600px' $margin='56px auto 0'
+      $padding='24px 16px' $gap='24px'
+    >
       <CategoriesList
         categories={categoriesList}
         activeCategory={activeCategory}
@@ -58,7 +62,7 @@ function HomePage() {
         downVote={onDownVoteThread}
       />
       <AddNewThreadButton />
-    </section>
+    </Container>
   );
 }
 

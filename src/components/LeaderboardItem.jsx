@@ -1,15 +1,19 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Card from './styled/Card';
+import Wrapper from './styled/Wrapper';
+import Image from './styled/Image';
+import Text from './styled/Text';
 
 function LeaderboardItem({ user, score }) {
   return (
-    <li className='leaderboard-item'>
-      <div className='leaderboard-item-user'>
-        <img src={user.avatar}/>
-        <p>{user.name}</p>
-      </div>
-      <p className='leaderboard-item-score'>{score}</p>
-    </li>
+    <Card $padding='.5rem 1rem' $justify='space-between' $align='center'>
+      <Wrapper $direction='row' $align='center' $gap='8px'>
+        <Image $weight='40px' $height='40px' src={user.avatar}/>
+        <Text>{user.name}</Text>
+      </Wrapper>
+      <Text>{score}</Text>
+    </Card>
   );
 }
 

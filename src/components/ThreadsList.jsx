@@ -1,10 +1,11 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import ThreadItem, { threadItemShape } from './ThreadItem';
+import Container from './styled/Container';
 
 function ThreadsList({ threads, authUserId, upVote, downVote }) {
   return (
-    <ul className='threads-list'>
+    <Container>
       {
         threads.map((thread) => (
           <ThreadItem
@@ -16,7 +17,7 @@ function ThreadsList({ threads, authUserId, upVote, downVote }) {
           />
         ))
       }
-    </ul>
+    </Container>
   );
 }
 

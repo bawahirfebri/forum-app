@@ -5,6 +5,12 @@ import CommentsList from './CommentsList';
 import CommentInput from './CommentInput';
 import { MdOutlineKeyboardArrowDown, MdOutlineKeyboardArrowUp, MdOutlineModeComment } from 'react-icons/md';
 import { commentShape } from './CommentItem';
+import Container from './styled/Container';
+import Wrapper from './styled/Wrapper';
+import Image from './styled/Image';
+import Text from './styled/Text';
+import Button from './styled/Button';
+import BodyText from './styled/BodyText';
 
 function ThreadDetail({
   title,
@@ -26,43 +32,45 @@ function ThreadDetail({
   const isDownVoted = downVotesBy.includes(authUserId);
 
   return (
-    <div className='thread-detail'>
-      <div className='thread-detail__content'>
-        <div className='thread-detail__content-header'>
-          <img src={owner.avatar}/>
-          <div className='thread-detail__content-header__info'>
-            <div className='thread-detail__content-header__info-user'>
-              <p className='thread-detail__content-header__info-user__name'>{owner.name}</p>
-              <p className='thread-detail__content-header__info-user__separator'>•</p>
-              <p className='thread-detail__content-header__info-user__created-at'>{postedAt(createdAt)}</p>
-            </div>
-            <p className='thread-detail__content-header__info-category'>{category}</p>
-          </div>
-        </div>
-        <div className='thread-detail__content-body'>
-          <p className='thread-detail__content-body__title'>{title}</p>
-          <div
-            className='thread-detail__content-body__body'
+    <Container $gap='16px'>
+      <Container>
+        <Wrapper $direction='row' $gap='8px'>
+          <Image $width='48px' $height='48px' src={owner.avatar}/>
+          <Wrapper $align='flex-start'>
+            <Wrapper $direction='row' $align='center'>
+              <Text $weight='500'>{owner.name}</Text>
+              <Text $size='12px' $color='#a8a6ac' $weight='300'>•</Text>
+              <Text $size='12px' $color='#a8a6ac' $weight='300'>{postedAt(createdAt)}</Text>
+            </Wrapper>
+            <Wrapper $background='#e4ecf7' $radius='6px' $padding='4px 8px'>
+              <Text $size='12px' $color='#505780' $weight='500'>{category}</Text>
+            </Wrapper>
+          </Wrapper>
+        </Wrapper>
+        <Wrapper>
+          <Text $size='20px' $weight='500'>{title}</Text>
+          <BodyText
+            className='thread-detail__body'
             dangerouslySetInnerHTML={{ __html: body }}
           />
-        </div>
-        <div className='thread-detail__content-actions'>
-          <button
+        </Wrapper>
+        <Wrapper $direction='row' $align='center' $gap='8px'>
+          <Button
             className={isUpVoted ? 'up-voted' : ''}
             type='button' onClick={upVoteThread}
           >
             <MdOutlineKeyboardArrowUp /> {upVotesBy.length}
-          </button>
-          <button
+          </Button>
+          <Button
             className={isDownVoted ? 'down-voted' : ''}
             type='button'
             onClick={downVoteThread}
           >
             <MdOutlineKeyboardArrowDown /> {downVotesBy.length}
-          </button>
-          <button><MdOutlineModeComment /> {comments.length}</button>
-        </div>
-      </div>
+          </Button>
+          <Button><MdOutlineModeComment /> {comments.length}</Button>
+        </Wrapper>
+      </Container>
       <CommentInput addNewComment={addNewComment} />
       <CommentsList
         comments={comments}
@@ -70,7 +78,7 @@ function ThreadDetail({
         upVoteComment={upVoteComment}
         downVoteComment={downVoteComment}
       />
-    </div>
+    </Container>
   );
 }
 

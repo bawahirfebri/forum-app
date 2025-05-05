@@ -14,7 +14,7 @@ import { hideLoading, showLoading } from 'react-redux-loading-bar';
 const fakeRegisterResponse = {
   'name': 'John Doe',
   'email': 'john@example.com',
-  'password': 'passwordtest'
+  'password': 'passwordtest',
 };
 
 const fakeErrorResponse = new Error('Ups, something went wrong');

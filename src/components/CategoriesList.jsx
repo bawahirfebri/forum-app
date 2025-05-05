@@ -1,22 +1,26 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import Wrapper from './styled/Wrapper';
+import Text from './styled/Text';
 
 function CategoriesList({ categories, activeCategory, onCategoryChange }) {
 
   return (
-    <ul className='categories-list'>
+    <Wrapper $direction='row' $gap='8px' $wrap='wrap'>
       {
         categories.map((category) => (
-          <li
+          <Wrapper 
             key={category}
             className={activeCategory === category ? 'active' : ''}
             onClick={() => onCategoryChange(category)}
+            $background='#e4ecf7' $radius='6px' $padding='6px 10px'
+            $cursor='pointer' $transform='scale(0.9)' $transition='transform 0.3s ease'
           >
-            {category}
-          </li>
+            <Text $size='14px' $color='#505780' $weight='500'>{category}</Text>
+          </Wrapper>
         ))
       }
-    </ul>
+    </Wrapper>
   );
 }
 
