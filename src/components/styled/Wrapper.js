@@ -16,7 +16,7 @@ const Wrapper = styled.div`
   position: ${(props) => props.$position};
   z-index: ${(props) => props.$zIndex};
   top: ${(props) => props.$top};
-  box-shadow: ${(props) => props.$boxShadow};
+  box-shadow: ${(props) => props.$boxshadow};
   border: ${(props) => props.$border};
 
   &:hover {

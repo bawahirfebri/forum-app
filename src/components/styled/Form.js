@@ -11,7 +11,7 @@ const Form = styled.form`
 
   &:focus-within {
     border-color: ${(props) => props.$borderColor};
-    box-shadow: ${(props) => props.$boxShadow};
+    box-shadow: ${(props) => props.$boxshadow};
   };
 `;
 
