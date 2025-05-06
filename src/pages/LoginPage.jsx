@@ -19,14 +19,14 @@ function LoginPage() {
 
   return (
     <Container
-      $background='radial-gradient(circle, rgba(22,129,250,1) 0%, rgba(20,88,194,1) 100%)'
-      $height='100vh' $justify='center' $align='center'
+      className='login'
+      $mw='450px' $height='100vh' $margin='auto' 
+      $padding='24px 16px' $gap='24px' $justify='center'
     >
       <Wrapper 
-        className='login'
-        $background='white' $border='1px solid #c8c8c8' $width='400px'
+        $background='white' $border='1px solid #c8c8c8' $width='100%'
         $radius='12px' $padding='24px' $gap='24px' $margin='1rem'
-        boxShadow='0 2px 4px rgba(0,0,0,0.1)'
+        $boxshadow='0 2px 4px rgba(0,0,0,0.1)'
       >
         <h2>Masuk</h2>
         <LoginInput login={onLogin} />

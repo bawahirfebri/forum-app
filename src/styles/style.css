@@ -115,6 +115,12 @@ button.down-voted {
   font-weight: 700;
 }
 
+main:has(.login),
+main:has(.register) {
+  background: rgb(22,129,250);
+  background: radial-gradient(circle, rgba(22,129,250,1) 0%, rgba(20,88,194,1) 100%);  
+}
+
 @media screen and (max-width: 1200px) {
   header {
     padding: 0 2rem;

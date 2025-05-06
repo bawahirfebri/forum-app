@@ -20,7 +20,7 @@ function CommentInput({ addNewComment }) {
     <>
     <Form
       $border=' 1px solid #c8c8c8' $padding='8px' $radius='12px' $align='end'
-      $borderColor='#2563eb' $boxShadow='0 0 0 1px rgba(37, 99, 235, 1)'
+      $borderColor='#2563eb' $boxshadow='0 0 0 1px rgba(37, 99, 235, 1)'
     >
       <textarea type='text' value={content} placeholder='Tuliskan komentar anda...' onChange={onContentChange} />
       <Button 
