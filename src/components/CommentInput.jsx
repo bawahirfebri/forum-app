@@ -23,7 +23,7 @@ function CommentInput({ addNewComment }) {
       $borderColor='#2563eb' $boxshadow='0 0 0 1px rgba(37, 99, 235, 1)'
     >
       <textarea type='text' value={content} placeholder='Tuliskan komentar anda...' onChange={onContentChange} />
-      <Button 
+      <Button
         type='submit' onClick={onAddNewCommentClick}
         $background='#0f69e6' $padding='8px 12px' $transition='transform 0.3s ease'
         $transform='scale(0.975)' $hoverBackground='#1681fa'

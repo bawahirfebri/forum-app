@@ -10,15 +10,15 @@
 *  - should dispatch action and call alert correctly when data fetching failed
 */
 
-import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
-import api from "../../utils/api";
-import { asyncSetAuthUser, setAuthUserActionCreator } from "./action";
-import { hideLoading, showLoading } from "react-redux-loading-bar";
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import api from '../../utils/api';
+import { asyncSetAuthUser, setAuthUserActionCreator } from './action';
+import { hideLoading, showLoading } from 'react-redux-loading-bar';
 
 const fakeLoginResponse = {
   'name': 'John Doe',
   'email': 'john@example.com',
-}
+};
 
 const fakeAuthUserResponse = {
   'id': 'john_doe',

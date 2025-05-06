@@ -12,7 +12,7 @@ function Navigation({ signOut }) {
       <Nav>
         <Link to='/'>Threads</Link>
         <Link to='/leaderboards'>Leaderboards</Link>
-        <Button 
+        <Button
           type='button' onClick={signOut}
           $size='20px' $hoverBackground='none'
           $transition='transform 0.3s ease'

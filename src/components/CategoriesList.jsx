@@ -9,7 +9,7 @@ function CategoriesList({ categories, activeCategory, onCategoryChange }) {
     <Wrapper $direction='row' $gap='8px' $wrap='wrap'>
       {
         categories.map((category) => (
-          <Wrapper 
+          <Wrapper
             key={category}
             className={activeCategory === category ? 'active' : ''}
             onClick={() => onCategoryChange(category)}

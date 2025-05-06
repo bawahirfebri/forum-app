@@ -15,6 +15,6 @@ const Container = styled.div`
 
 Container.defaultProps = {
   $gap: '12px',
-}
+};
 
 export default Container;

@@ -17,6 +17,6 @@ const Form = styled.form`
 
 Form.defaultProps = {
   $gap: '8px'
-}
+};
 
-export default Form
+export default Form;

@@ -17,4 +17,4 @@ Text.defaultProps = {
   $weight: 'normal',
 };
 
-export default Text
+export default Text;

@@ -10,6 +10,6 @@ Image.defaultProps = {
   $width: '64px',
   $height: '64px',
   $radius: '12px',
-}
+};
 
 export default Image;

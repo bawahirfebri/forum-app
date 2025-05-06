@@ -23,7 +23,7 @@ function RegisterInput({ register }) {
       <Input type='text' placeholder='Name' value={name} onChange={onNameChange} />
       <Input type='email' placeholder='Email' value={email} onChange={onEmailChange} />
       <Input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
-      <Button 
+      <Button
         type='submit' onClick={onRegisterClick}
         $background='#0f69e6' $padding='12px' $justify='center'
         $hoverBackground='#1681fa' $transition='transform 0.3s ease'

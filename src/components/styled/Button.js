@@ -25,6 +25,6 @@ Button.defaultProps = {
   $padding: '4px 8px',
   $background: 'transparent',
   $hoverBackground: '#e4ecf7',
-}
+};
 
 export default Button;

@@ -1,3 +1,4 @@
+import React from 'react';
 import { MemoryRouter } from 'react-router-dom';
 import CommentItem from '../components/CommentItem';
 import PropTypes from 'prop-types';

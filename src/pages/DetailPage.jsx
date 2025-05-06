@@ -43,7 +43,7 @@ function DetailPage() {
 
   return (
     <Container
-      $mw='600px' $margin='56px auto 0' 
+      $mw='600px' $margin='56px auto 0'
       $padding='24px 16px' $gap='24px'
     >
       <ThreadDetail
