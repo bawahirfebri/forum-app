@@ -3,7 +3,7 @@ import useInput from '../hooks/useInput';
 import PropTypes from 'prop-types';
 import Form from './styled/Form';
 import Button from './styled/Button';
-import Text from './styled/Text'
+import Text from './styled/Text';
 import Input from './styled/Input';
 
 function ThreadInput({ addNewThread }) {
@@ -27,7 +27,7 @@ function ThreadInput({ addNewThread }) {
       <Input type='text' placeholder='Judul' value={title} onChange={onTitleChange} />
       <Input type='text' placeholder='Kategori' value={category} onChange={onCategoryChange} />
       <div className='thread-input__body' contentEditable='true' aria-label='body' onInput={onBodyChange} />
-      <Button 
+      <Button
         type='submit' onClick={onAddNewThreadClick}
         $background='#0f69e6' $padding='12px' $justify='center'
         $hoverBackground='#1681fa' $transition='transform 0.3s ease'

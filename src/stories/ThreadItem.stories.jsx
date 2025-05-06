@@ -1,3 +1,4 @@
+import React from 'react';
 import PropTypes from 'prop-types';
 import ThreadItem from '../components/ThreadItem';
 import { MemoryRouter } from 'react-router-dom';
@@ -10,13 +11,13 @@ const stories = {
       <MemoryRouter>
         <Story />
       </MemoryRouter>
-    )
+    ),
   ],
 };
 
 export default stories;
 
-const TemplateStory = (args) => <ThreadItem {...args}/>;
+const TemplateStory = (args) => <ThreadItem {...args} />;
 
 const WithTypeDefault = TemplateStory.bind({});
 WithTypeDefault.args = {
@@ -47,7 +48,7 @@ WithTypeUpVoted.args = {
   totalComments: 0,
   owner: {
     name: 'Dimas Saputra',
-    avatar: 'https://ui-avatars.com/api/?name=Dimas+Saputra'
+    avatar: 'https://ui-avatars.com/api/?name=Dimas+Saputra',
   },
   authUserId: 'user-1',
 };
@@ -64,7 +65,7 @@ WithTypeDownVoted.args = {
   totalComments: 0,
   owner: {
     name: 'Dimas Saputra',
-    avatar: 'https://ui-avatars.com/api/?name=Dimas+Saputra'
+    avatar: 'https://ui-avatars.com/api/?name=Dimas+Saputra',
   },
   authUserId: 'user-1',
 };
@@ -93,8 +94,4 @@ ThreadItem.propTypes = {
   downVote: PropTypes.func.isRequired,
 };
 
-export { 
-  WithTypeDefault,
-  WithTypeUpVoted,
-  WithTypeDownVoted,
-};
+export { WithTypeDefault, WithTypeUpVoted, WithTypeDownVoted };

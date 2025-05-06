@@ -20,10 +20,10 @@ function LoginPage() {
   return (
     <Container
       className='login'
-      $mw='450px' $height='100vh' $margin='auto' 
+      $mw='450px' $height='100vh' $margin='auto'
       $padding='24px 16px' $gap='24px' $justify='center'
     >
-      <Wrapper 
+      <Wrapper
         $background='white' $border='1px solid #c8c8c8' $width='100%'
         $radius='12px' $padding='24px' $gap='24px' $margin='1rem'
         $boxshadow='0 2px 4px rgba(0,0,0,0.1)'

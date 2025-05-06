@@ -21,7 +21,7 @@ function LoginInput({ login }) {
     <Form>
       <Input type='email' placeholder='Email' value={email} onChange={onEmailChange} />
       <Input type='password' placeholder='Password' value={password} onChange={onPasswordChange} />
-      <Button 
+      <Button
         type='submit' onClick={onLoginClick}
         $background='#0f69e6' $padding='12px' $justify='center'
         $hoverBackground='none' $transition='transform 0.3s ease'

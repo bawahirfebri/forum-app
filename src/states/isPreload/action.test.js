@@ -25,13 +25,13 @@ describe('asyncPreloadProcess thunk', () => {
   beforeEach(() => {
     api._getOwnProfile = api.getOwnProfile;
   });
-  
+
   afterEach(() => {
     api.getOwnProfile = api._getOwnProfile;
-  
+
     delete api.getOwnProfile;
   });
-  
+
   it('should dispatch action correctly when data fetching success', async () => {
     api.getOwnProfile = () => Promise.resolve(fakeAuthUserResponse);
     const dispatch = vi.fn();
